@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-gold-light: 255, 215, 0;
+    --color-gold: 218, 165, 32;
+    --color-gold-dark: 184, 134, 11;
+    --color-obsidian: 15, 15, 15;
+    --color-magma: 153, 27, 27;
+  }
+}
+
+@layer utilities {
+  .bg-magma-gradient {
+    background: linear-gradient(
+      45deg,
+      rgb(var(--color-obsidian)),
+      rgb(var(--color-magma))
+    );
+  }
+  
+  .text-gold-gradient {
+    background: linear-gradient(
+      to right bottom,
+      rgb(var(--color-gold-light)),
+      rgb(var(--color-gold))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .border-gold-gradient {
+    border-image: linear-gradient(
+      to right,
+      rgb(var(--color-gold-light)),
+      rgb(var(--color-gold-dark))
+    ) 1;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+  
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+}

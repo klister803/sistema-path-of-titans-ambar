@@ -1,0 +1,135 @@
+# Project Overview: Planeta Âmbar
+
+## 1. Introduction
+
+This document provides a detailed overview of the Planeta Âmbar project, a web application built using React, TypeScript, Tailwind CSS, and other modern web technologies. The project aims to provide a platform for users to interact with a game server, manage their accounts, and access game-related information.
+
+## 2. Project Structure
+
+The project is structured as a typical React application with a focus on modularity and maintainability. Here's a breakdown of the main directories and their purposes:
+
+### 2.1. `src/`
+
+This directory contains all the source code for the application.
+
+*   **`src/components/`**: Contains reusable UI components.
+    *   `src/components/auth/`: Components related to authentication (login, registration, password reset).
+    *   `src/components/dashboard/`: Components specific to the user dashboard.
+    *   `src/components/admin/`: Components specific to the admin panel.
+    *   `src/components/layout/`: Layout components for different sections of the application.
+    *   `src/components/navigation/`: Navigation components (header, sidebar).
+    *   `src/components/ui/`: Reusable UI elements (cards, buttons, inputs).
+    *   `src/components/effects/`: Visual effects components (transitions, backgrounds).
+    *   `src/components/brand/`: Components related to branding (logo, image containers).
+    *   `src/components/guides/`: Components for displaying and editing game guides.
+    *   `src/components/account/`: Components for account linking.
+    *   `src/components/admin/rcon/`: Components for the RCON console.
+*   **`src/lib/`**: Contains core application logic and utilities.
+    *   `src/lib/api/`: Contains API interaction logic (RCON, Supabase).
+    *   `src/lib/auth/`: Authentication-related logic.
+    *   `src/lib/rcon/`: RCON connection and command execution logic.
+    *   `src/lib/supabase.ts`: Supabase client initialization.
+    *   `src/lib/validations/`: Validation schemas using Zod.
+    *   `src/lib/utils/`: Utility functions (password handling, retry logic, token generation).
+*   **`src/pages/`**: Contains page-level components.
+    *   `src/pages/admin/`: Pages for the admin panel.
+    *   `src/pages/dashboard/`: Pages for the user dashboard.
+    *   `src/pages/`: General pages (landing, login, registration, support, guides).
+*   **`src/stores/`**: Contains Zustand stores for managing application state.
+    *   `src/stores/authStore.ts`: Manages authentication state.
+    *   `src/stores/guidesStore.ts`: Manages game guide data.
+    *   `src/stores/rconStore.ts`: Manages RCON connection and command history.
+*   **`src/types/`**: Contains TypeScript type definitions.
+    *   `src/types/auth.ts`: Types related to authentication.
+    *   `src/types/database.ts`: Types related to database tables.
+    *   `src/types/rcon.ts`: Types related to RCON communication.
+*   **`src/styles/`**: Contains global CSS styles.
+    *   `src/styles/theme.css`: Global theme definitions using Tailwind CSS.
+*   **`src/svgs-custom/`**: Contains custom SVG files.
+*   **`src/sistema_rcon/`**: Contains RCON related files.
+    *   `src/sistema_rcon/cliente/`: RCON client implementation.
+    *   `src/sistema_rcon/config/`: RCON configuration.
+    *   `src/sistema_rcon/tipos/`: RCON types.
+    *   `src/sistema_rcon/utils/`: RCON utilities.
+    *   `src/sistema_rcon/ponte_rcon.ts`: RCON bridge implementation.
+    *   `src/sistema_rcon/servico_rcon.ts`: RCON service implementation.
+*   **`src/vite-env.d.ts`**: TypeScript declaration file for Vite environment variables.
+*   **`src/main.tsx`**: Entry point for the React application.
+*   **`src/index.css`**: Global CSS file.
+*   **`src/App.tsx`**: Main application component with routing.
+
+### 2.2. `public/`
+
+This directory contains static assets.
+
+*   `public/images/`: Contains images used in the application.
+*   `public/images/logo-svg-colorida.svg`: Logo SVG file.
+*   `public/images/logo-svg-escura.svg`: Logo SVG file.
+
+### 2.3. `supabase/`
+
+This directory contains Supabase-related files.
+
+*   `supabase/migrations/`: SQL migration files for database schema changes.
+
+### 2.4. Root Level Files
+
+*   `.env`: Environment variables.
+*   `.gitignore`: Git ignore file.
+*   `eslint.config.js`: ESLint configuration file.
+*   `index.html`: HTML entry point for the application.
+*   `netlify.toml`: Netlify configuration file.
+*   `package-lock.json`: npm lock file.
+*   `package.json`: npm package file.
+*   `postcss.config.js`: PostCSS configuration file.
+*   `tailwind.config.js`: Tailwind CSS configuration file.
+*   `tsconfig.app.json`: TypeScript configuration for the app.
+*   `tsconfig.json`: TypeScript configuration file.
+*   `tsconfig.node.json`: TypeScript configuration for Node.js.
+*   `vite.config.ts`: Vite configuration file.
+*   `yarn.lock`: Yarn lock file.
+*   `project_overview.txt`: This file.
+
+## 3. Key Technologies
+
+*   **React**: A JavaScript library for building user interfaces.
+*   **TypeScript**: A superset of JavaScript that adds static typing.
+*   **Tailwind CSS**: A utility-first CSS framework.
+*   **Zustand**: A small, fast, and scalable bearbones state-management solution.
+*   **Framer Motion**: A motion library for React.
+*   **Lucide React**: A library of beautiful SVG icons.
+*   **Vite**: A fast build tool for modern web development.
+*   **Supabase**: A backend-as-a-service platform.
+*   **Axios**: A promise-based HTTP client.
+*   **MCRcon**: A Python library for interacting with Minecraft RCON servers.
+*   **ws-rcon-client**: A Node.js library for interacting with RCON servers via WebSockets.
+*   **Pyodide**: A Python distribution for the browser.
+
+## 4. Core Functionalities
+
+*   **User Authentication**: Secure login and registration using Supabase Auth.
+*   **Account Linking**: Linking game accounts to user profiles using a verification code sent via RCON.
+*   **RCON Integration**: Sending commands to the game server via RCON.
+*   **Real-time Player Count**: Displaying the current number of online players.
+*   **Game Guides**: Providing access to game guides and tutorials.
+*   **Support System**: Providing a way for users to contact support.
+*   **Admin Panel**: Providing administrative tools for managing the server.
+*   **Responsive Design**: Ensuring the application works well on different screen sizes.
+
+## 5. Design Principles
+
+*   **Modularity**: The application is built using small, reusable components.
+*   **Maintainability**: The code is well-organized and easy to understand.
+*   **Scalability**: The application is designed to handle a growing number of users and features.
+*   **Performance**: The application is optimized for speed and efficiency.
+*   **User Experience**: The application is designed to be intuitive and easy to use.
+
+## 6. Future Enhancements
+
+*   Implement a more robust RCON command execution system.
+*   Add more features to the admin panel.
+*   Improve the user interface and user experience.
+*   Add more game-related features.
+*   Implement a more robust error handling system.
+
+This overview provides a comprehensive look at the Planeta Âmbar project. It should serve as a useful reference for understanding the project's structure, technologies, and functionalities.
